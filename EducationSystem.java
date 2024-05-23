@@ -140,7 +140,7 @@ public class EducationSystem{
             System.out.println(sutUniversity.transferStudent(s2, sbuUniversity));
         }
 
-        System.out.println(sbu.displayInfo());
-        System.out.println(sut.displayInfo());
+        System.out.println(sbuUniversity.displayInfo());
+        System.out.println(sutUniversity.displayInfo());
     }
 }
