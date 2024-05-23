@@ -120,11 +120,11 @@ public class EducationSystem{
     public static void main(String[] args) {
         SbuUniversity sbuUniversity = new SbuUniversity("Sbu University", 5000.0);
         SutUniversity sutUniversity = new SutUniversity("SUT University", 7000.0);
-        Student s1 = new Student("Kamran", 6000.0, sbuUniversity);
-        Student s2 = new Student("Hooman", 6000.0, sutUniversity);
+        Student s1 = new Student("Kamran", 10000.0, sbuUniversity);
+        Student s2 = new Student("Hooman", 10000.0, sutUniversity);
         System.out.println(s1.displayInfo());
         System.out.println(s2.displayInfo());
-        if (sbuUniversity.transferStudent(s1, sutUniversity)) {
+        if (sbuUniversity.transferStudent(s1, sbuUniversity)) {
             System.out.println("transfer of " + s1.getName() + ": ");
             System.out.println(sbuUniversity.transferStudent(s1, sutUniversity));
         } else {
