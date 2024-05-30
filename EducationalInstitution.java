@@ -1,0 +1,3 @@
+interface EducationalInstitution {
+    void displayInfo();
+}
