@@ -105,7 +105,7 @@ class SutUniversity extends University {
 
     }
 }
-public class EducationSystem {
+public class AcademicSystem {
     public static void main(String[] args) {
         SbuUniversity sbu = new SbuUniversity("Shahid Beheshti University", 1500.0);
         SutUniversity sut = new SutUniversity("Sharif University of Technology", 2000.0);
