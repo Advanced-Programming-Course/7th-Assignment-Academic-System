@@ -1,55 +1,87 @@
-#### در این تمرین می خواهیم سامانه دانشگاهی مربوط به دو دانشگاه بهشتی و شریف را به هم متصل و بروز کنیم:
+Here’s an English version of the README for your assignment:
 
-### اینترفیس EducationalInstitution:
-##### یک interface می باشد و تنها شامل متد displayInfo است که باید در زیرکلاس های آن پیاده سازی شود.
+---
 
-#### کلاس University:
-##### یک کلاس abstract شامل متد های abstract است و تنها interface برنامه‌ مان را پیاده سازی می‌کند.
+# Education System
 
-##### پراپرتی ها
-##### name : نمایانگر اسم دانشگاه می‌باشد
-##### studentCount : نمایانگر تعداد دانشجویان دانشگاه می‌باشد
-##### tuitionFee : نمایانگر شهریه دانشگاه می‌باشد
-##### students : آرایه ای از دانشجویان ‌می‌باشد
-##### کانستراکتور:
-##### تمام پراپرتی‌های این کلاس در اینجا باید مقداردهی اولیه بشوند .
+In this exercise, we aim to connect and synchronize the university systems of **Shahid Beheshti University (SBU)** and **Sharif University of Technology (SUT)**.
 
-##### متد:
-##### تنها متد این کلاس transferStudent می‌باشد که وظیفه انتقال یک دانشجو از یک دانشگاه به دانشگاه دیگر ( که در آرگومان پاس داده شده ) را بر عهده دارد . در ابتدا چک می‌شود که دانشجو متعلق به دانشگاه مبدا می‌باشد و سپس از لیست دانشجویان دانشگاه مبدا خارج و به لیست دانشجویان دانشگاه مقصد اضافه می‌شود و در نهایت پراپرتی university دانشجو آپدیت شود اگر تمام عملیات فوق با موفقیت گذرانده شود مقدار true درغیراینصورت false برگردانده شود.
+## Interface: `EducationalInstitution`
 
-#### کلاس student:
-##### یک کلاس می‌باشد که interface برنامه را پیاده سازی می‌کند.
+* An **interface** containing only the method `displayInfo`, which must be implemented in its subclasses.
 
-#### پراپرتی ها
-##### name : نمایانگر اسم دانشجو می‌باشد
-##### university : نمایانگر دانشگاه دانشجو می‌باشد
-##### balance : نمایانگر موجودی دانشجو می‌باشد
-##### کانستراکتور
-##### در کانستراکتور برنامه اسم ، موجودی ، دانشگاه به ترتیب پاس داده شده در ابتدا چک کنید که دانشجو بودجه کافی برای ثبت نام در دانشگاه موردنظر را دارد ، اگر امکان وجود داشت او را به دانشگاه فوق اضافه کرده و موجودی وی را پس از ثبت نام در پراپرتی بالانس ذخیره کنید و اگر موجودی کافی نبود پیام "Not Enough Balance" را چاپ کنید
+## Abstract Class: `University`
 
-##### متد:
-##### متد displayInfo برای دانشجو رشته با فرمت زیر را برمی‌گرداند :
+* Implements the program’s interface.
+* **Properties**:
 
-##### Name: اسم دانشجو
-##### University: اسم دانشگاه
-##### Balance: موجودی
-##### و سه getter در پروژه را پیاده سازی کنید.
+  * `name`: the name of the university
+  * `studentCount`: the number of students
+  * `tuitionFee`: the tuition fee
+  * `students`: an array of enrolled students
+* **Constructor**: initializes all properties.
+* **Method**:
 
-#### کلاس SbuUniversity:
-##### یک کلاس عادی می‌باشد که کلاس university والد آن می‌باشد.
+  * `transferStudent`: transfers a student from one university to another (given in the argument).
 
-##### کانستراکتور:
-##### از سازنده والد خود استفاده می‌کند.
+    * Checks if the student belongs to the source university.
+    * Removes the student from the source list and adds them to the destination list.
+    * Updates the student’s `university` property.
+    * Returns `true` if successful, otherwise `false`.
 
-##### متد:
-##### متد displayInfo برای این کلاس رشته ای به فرمت زیر را بر‌می‌گرداند :
+## Class: `Student`
 
-#### SBU University
-##### Tuition Fee: شهریه های دریافتی
-##### Student Count: تعداد دانشجویان فعلی
-##### دقت کنید که مقدار شهریه را تا یک رقم اعشار در رشته قرار دهید.
+* Implements the program’s interface.
+* **Properties**:
 
-#### کلاس SutUniversity:
-##### مانند کلاس SbuUniversity می‌باشد صرفا در متد displayInfo به جای رشته SBU رشته SUT باید در پیام باشد.
+  * `name`: student’s name
+  * `university`: student’s university
+  * `balance`: student’s balance
+* **Constructor**:
 
-### در نهایت یک فایل به نام EducationSystem.java آپلود کنید که شامل تمامی کلاس ها و اینترفیس بالا باشد.
+  * Accepts name, balance, and university.
+  * Checks if the student has enough budget to pay the tuition fee.
+  * If yes, enrolls the student in the university and updates their balance.
+  * If not, prints `"Not Enough Balance"`.
+* **Method**:
+
+  * `displayInfo`: returns a string in the following format:
+
+    ```
+    Name: <student name>
+    University: <university name>
+    Balance: <balance>
+    ```
+* **Getters**: 3 getters must be implemented for the properties.
+
+## Class: `SbuUniversity`
+
+* Extends `University`.
+* **Constructor**: calls the parent constructor.
+* **Method**:
+
+  * `displayInfo`: returns a string in the format:
+
+    ```
+    SBU University
+    Tuition Fee: <fee>
+    Student Count: <count>
+    ```
+
+    (tuition fee should be displayed with one decimal place).
+
+## Class: `SutUniversity`
+
+* Same as `SbuUniversity`, but in the `displayInfo` method, `"SUT University"` should be printed instead of `"SBU University"`.
+
+---
+
+### Final Output
+
+All classes and the interface should be included in a single file named:
+
+**`EducationSystem.java`**
+
+---
+
+Do you also want me to **write and format the full Java implementation** (`EducationSystem.java`) for you?
