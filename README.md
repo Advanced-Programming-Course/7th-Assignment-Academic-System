@@ -1,7 +1,3 @@
-Here’s an English version of the README for your assignment:
-
----
-
 # Education System
 
 In this exercise, we aim to connect and synchronize the university systems of **Shahid Beheshti University (SBU)** and **Sharif University of Technology (SUT)**.
@@ -81,7 +77,3 @@ In this exercise, we aim to connect and synchronize the university systems of **
 All classes and the interface should be included in a single file named:
 
 **`EducationSystem.java`**
-
----
-
-Do you also want me to **write and format the full Java implementation** (`EducationSystem.java`) for you?
